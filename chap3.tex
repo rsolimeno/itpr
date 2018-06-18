@@ -1,0 +1,71 @@
+% Chapter 3
+\chapter{TNC Commands - Part 1 of 3}
+In chapter 2 I talked about how to get on the air and make your first QSO. Now let's take a look at some of the commands that are available in your TNC or packet software to help improve your station operation.
+
+The TNC (Terminal Node Controller) has more than 100 different commands available for you to use. You're able to customize your packet operating with these commands and turn on and off various features as you wish. Not all TNCs are exactly alike, but all have pretty much the same set of commands. I'll be using the command set in the TNC2 and clones in my examples. You might want to check the command list in your TNC operating manual to see if your TNC uses the commands as I indicate here.
+
+For those of you who are using the packet software and modem instead of a TNC, you'll find a list of the commands in your help documentation. You will find that some of the commands cannot be modified while the software is running. Some have to be changed with the program's configuration file. Check the help document for instructions on how to change these commands in your particular software.
+
+We covered a few of the commands previously: \verb!CONTROL C! for entering command mode, \verb!MYCALL, MONITOR, ECHO, CONNECT, and DISCONNECT!. (Refer to chapter 2 if you need information on these commands.) Now let's discuss a few that will affect the way your station functions on the air.
+
+\verb!CONV! (converse mode): Your TNC will automatically switch to this mode when you connect with someone, but you can also switch to this mode by entering \verb!CONV <CR>! at the \verb!Cmd:! prompt. When you're in converse mode and are NOT connected to another station, anything you type will be transmitted via the path you set with the \verb!UNPROTO! command. (See the next paragraph for \verb!UNPROTO!.) Packets sent via \verb!UNPROTO! are sent only once and are not acknowledged, so there is no guarantee that they'll get through. This mode is used frequently for sending CQ's.
+
+\verb!UNPROTO!: Designates the path used when you send \verb!BEACONS! or when you're in converse mode and NOT connected to another station. The default is CQ, but you can enter a series of digipeaters if you wish, or a specific group or club name. Some examples:
+
+\begin{flushleft}
+\verb!CQ v WB6SDS-2,W6SG-1,AJ7L!
+\verb!SFARC v W6PW-1,W6PW-4!
+\end{flushleft}
+
+If you include digipeaters in your \verb!UNPROTO! path, you will have to change the information for each frequency you use. (\verb!BEACONS! will be discussed in a later part of this series.)
+
+\verb!FRACK!: Determines how long your TNC will wait for an acknowledgement before resending a packet. It shouldn't be set too low, or you'll simply clutter up the frequency, yet it shouldn't be too high, or you'll spend too much time waiting. I use \verb!FRACK! set to 7, and have found that to be a good overall value.
+
+\verb!DWAIT!: Used to avoid collisions, \verb!DWAIT! is the number of time units the TNC will wait after last hearing data on the channel before it transmits. I have \verb!DWAIT! set to 16, and have found that to work well.
+
+\verb!PACLEN!: Indicates the number of characters in the packets you transmit, ranging from 0 to 255. (A value of 0 equals 256.) The more characters you send per packet, the longer it takes to transmit the information and the greater your chances are of noise, interference or another station wiping it out. I've found a \verb!PACLEN! of 80, which is the length of one line, to be a good value. When working a station nearby, \verb!PACLEN! can be increased. When working a distant station, it should be decreased.
+
+\verb!RETRY!: Your TNC will retransmit a packet if it doesn't receive an acknowledgement from the station you're working. \verb!RETRY! indicates the number of times the TNC will try to get the packet through before giving up and disconnecting. This can be set from 0 to 15, but I've found 8 to 10 to work well. Less than that causes an unnecessary disconnect if the channel happens to be busy, but more than that clutters up the channel. Do NOT set \verb!RETRY! to 0. That means infinite retries, and serves no useful purpose. It simply clutters up the frequency needlessly.
+
+The following commands affect "monitoring", which is what you see on your screen from stations you're NOT connected to.
+
+\verb!MONITOR!: This must be ON for you to monitor anything. When ON, you see packets from other stations on the frequency you're tuned to. What packets you see is determined by other commands from the list below. If \verb!MONITOR! is OFF, you only see the packets that are sent to you while you're connected to another station.
+
+Note: On some TNCs, such as the AEA PK-232, monitoring functions are selected by a number after the MONITOR command, such as:
+
+\begin{flushleft}
+\verb!MONITOR 3! or\\
+\verb!M 3!\\
+\end{flushleft}
+
+\noindent Refer to your TNC operating manual for details.\\
+
+
+\verb!MALL!: If \verb!MALL! is ON, you receive packets from stations that are connected to other stations, as well as packets sent in unproto (unconnected) mode. This should be ON for "reading the mail". If \verb!MALL! is OFF, you receive only packets sent in unproto mode by other stations.
+
+\verb!MCOM!: If ON, you see connect \verb!<C! or \verb!SABM>!, disconnect \verb!<D>!, acknowledge \verb!<UA>! and busy \verb!<DM>! frames in addition to information packets. If OFF, only information packets are seen.
+
+\verb!MCON!: If ON, you see packets from other stations while you're connected to someone else. This can get very confusing, but is useful when your path is bad and you want to see if your packets are being digipeated okay. If OFF, the monitoring of other stations is stopped when you're connected to another station.
+
+\verb!MRPT!: If ON, you see a display of all the stations used as digipeaters along with the station originating the packet and the destination station. If OFF, you see only the originating and destination stations. For example, if you have \verb!MRPT ON!, you might see a transmission such as this:
+
+\begin{flushleft}
+\verb!K9AT>WB6QVU,W6PW-5*: I'll be leaving for the meeting at about 7:30.!
+\end{flushleft}
+
+\noindent If \verb!MRPT! was OFF, the same transmission would look like this:
+
+\begin{flushleft}
+\verb!K9AT>WB6QVU: I'll be leaving for the meeting at about 7:30.!
+\end{flushleft}
+
+In the first case, you can see that the W6PW-5 digipeater was being used. The asterisk indicates which station you were hearing the packet from. In the second case you have no idea if digipeaters are being used or what station you were receiving.
+
+\verb!HEADERLN!: If you have this turned ON, the header of each packet is printed on a separate line from the text. If OFF, both the header and packet text are printed on the same line.
+
+\verb!MSTAMP!: The date and the time the monitored packets are received is indicated if the \verb!MSTAMP! command is ON. If it's OFF, the date/time stamp is not shown. NOTE: The date and time must be entered into your TNC memory using the \verb!DAYTIME! command before the \verb!MSTAMP! command will function.
+
+I run my station with all of these commands, except \verb!MCON!, turned ON so that I can really see what's happening on the frequency I'm monitoring. Try various combinations of these commands and then decide on the combination you like best for your station.
+
+MORE COMMANDS - The commands discussed here are a few of the basic TNC commands. I'll discuss many of the other commands available to you in chapters 13 and 14 of this series.
+
