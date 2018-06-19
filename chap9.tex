@@ -1,6 +1,6 @@
 % Chapter 9
 \chapter{PACKET RADIO WHITE PAGES DATABASE}
-In this part of the series we're going to look at the White Pages. No, not your local telephone directory, but the packet radio directory known as the ``White Pages''. You help supply the information for ``WP'', and you can also use it to find the home BBS, QTH and zip code of your friends on packet.
+In this part of the series we're going to look at the White Pages.\index{White Pages} No, not your local telephone directory, but the packet radio directory known as the ``White Pages''. You help supply the information for ``WP'', and you can also use it to find the home BBS, QTH and zip code of your friends on packet.
 
 ``White Pages'' was initially designed by Eric Williams, WD6CMU, of Richmond, California. Hank Oredson, W0RLI, later added a WP database to his packet bulletin board software, and now most of the BBS software programs have some form of the White Pages available. It's a database of packet users showing their name, home BBS, QTH and zip code. It's updated and queried by packet message, allowing stations from all over the world to take advantage of it.
 
@@ -14,7 +14,7 @@ Check the help information on your BBS to see which command is the one used ther
 
 If your local BBS doesn't have the information you are looking for, it can be obtained from your regional WP server or from the national WP server. Since query messages are read and answered by the WP software, not by a person, you must use the correct format:\\
 
-\verb!callsign ?!
+\verb!callsign ?!\index{callsign ?}
 
 You address your query to WP @ the callsign of the server you want to use. The word QUERY is entered for the subject. You may then may include as many requests as you wish in the text of each message, but each must be on a separate line.
 
@@ -31,7 +31,7 @@ Here's an example of a message sent to N6IYA, the national White Pages server:\\
 
 \noindent Capital and lower case letters may both be used within the message.
 
-Just like all other packet messages, messages addressed to WP are forwarded from BBS to BBS toward their destination. If a BBS operating with the W0RLI WP Server handles a query message, it will respond with any pertinent information that it has available. As a result, you might receive more than one response to your WP query.
+Just like all other packet messages, messages addressed to WP are forwarded from BBS to BBS toward their destination. If a BBS operating with the W0RLI WP Server\index{WP Server} handles a query message, it will respond with any pertinent information that it has available. As a result, you might receive more than one response to your WP query.
 
 If the information on a callsign in a WP database is not updated, it is deleted after a certain length of time specified by the sysop. This time frame is normally 90 to 180 days, although some systems retain information for up to a year.
 
@@ -39,4 +39,4 @@ It is important to note here that you should choose ONLY ONE BBS as your home BB
 
 When a message arrives at the destination BBS given in the ``@ BBS'' column, some of the BBS software will check the White Pages information to make sure that the message has been delivered to the right place. If it finds that a different BBS is listed as the addressee's home BBS, it will insert that BBS callsign in the message and send it on its way. If you enter different home BBS calls on several BBSs, your mail could easily end up being sent from BBS to BBS and never reach you.
 
-If you move or change your home BBS, you should then make sure that you update the information for your call in the White Pages database. Use the \verb!NH!, \verb!NQ! and \verb!NZ! commands to update the information. Making sure that the information in the White Pages is correct will help to get your messages delivered to the correct BBS.
+If you move or change your home BBS, you should then make sure that you update the information for your call in the White Pages database. Use the \verb!NH!,\index{NH command} \verb!NQ!\index{NQ command} and \verb!NZ!\index{NZ command} commands to update the information. Making sure that the information in the White Pages is correct will help to get your messages delivered to the correct BBS.\index{BBS}

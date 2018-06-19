@@ -19,7 +19,7 @@ When entering the list of digipeaters in your connect sequence,\index{connect se
 Something to remember when using digipeaters is the difference between making a connection and sending information packets. If the path isn't all that good, you might be able to get a connect request\index{connect request} through, but will have a difficult time with packets after that. The connect request\index{connect request} is short so it has much less of a chance of being destroyed by noise or collisions than a packet containing information. Keeping information packets short (\verb!PACLEN!\index{PACLEN} set to 40 or less) can help keep retries down when the path is less than ideal.
 
 \section{NODES}\index{NODES}
-Net/Rom, TheNet, G8BPQ packet switch and KA-Node are names that refer to a device called a packet node. This is another means of connecting to other packet stations. Later on in this series you'll find a complete review of node operation, but for now we'll cover the basics so that you can begin to use the node network. The difference between a digipeater and a node that you should note here is that you connect to a node rather than using it in a connect path as you do with a digipeater. Some packet stations are set up so that they can be used as a digipeater and as a node.
+Net/Rom, TheNet, G8BPQ packet switch and KA-Node are names that refer to a device called a packet node. This is another means of connecting to other packet stations. Later on in this series you'll find a complete review of node operation, but for now we'll cover the basics so that you can begin to use the node network.\index{node network} The difference between a digipeater and a node that you should note here is that you connect to a node rather than using it in a connect path as you do with a digipeater. Some packet stations are set up so that they can be used as a digipeater and as a node.
 
 First, you need to determine what nodes are located close to you. You can do this by monitoring and watching for an ID, or by watching to see what other stations in your area are using. It is most common for a node to have an alias ID in addition to its callsign. Once you determine the callsign or alias of a local node,\index{local node} you connect to it the same way as you connect to any other packet station. You may use either the callsign or the alias to make the connection. For example, the node I operate has the alias ID of BERKLY and the callsign of WB9LOZ-2, so you could connect to it using: 
 
@@ -64,8 +64,8 @@ NOTE: If the node you're using is a G8BPQ packet switch, it might have several f
 
 \noindent Enter \verb!PORTS! for a list of the frequency ports available.
 
-\section{NODE NETWORK}\index{NODE NETWORK}
-The packet nodes work together to form a packet node network.\index{packet node network} Once an hour each node transmits a list of other nodes that it knows about. The neighboring nodes use this information to keep track of the other nodes in the network. We will discuss how all of this works later on.
+\section{NODE NETWORK}\index{node network}
+The packet nodes work together to form a packet node network.\index{packet node network} Once an hour each node transmits a list of other nodes that it knows about. The neighboring nodes\index{neighboring node} use this information to keep track of the other nodes in the network. We will discuss how all of this works later on.
 
 When you're connected to a node you can enter:
 
@@ -76,7 +76,7 @@ When you're connected to a node you can enter:
 
 \noindent and you'll receive a list of other nodes that you can reach on the network from the node you're using. You'll note that the node list will vary in length and in the calls listed as you move from frequency to frequency, since all frequencies are not linked together. The list gives both an alias ID and a callsign for each node. The alias ID often gives you a hint as to where the node is located, but not always. To find out for sure where a node is located you'll need to get a copy of the descriptive node listings that are available on most packet bulletin board systems. These complete lists give the alias, callsign, location, frequency and other information on each node in the network.
 
-To connect to a station in another area using the node network you first must determine which node is closest to the station you want to work. For demonstration purposes, let's say we want to connect to N6XYZ. He's told you he uses the W6ABC-3 node, so you check the node list and see that GOLD:W6ABC-3 is listed. WHILE YOU ARE STILL CONNECTED TO YOUR LOCAL NODE\index{local node} you connect to the distant node by sending a normal connect request,\index{connect request} in this case: 
+To connect to a station in another area using the node network\index{node network} you first must determine which node is closest to the station you want to work. For demonstration purposes, let's say we want to connect to N6XYZ. He's told you he uses the W6ABC-3 node, so you check the node list and see that GOLD:W6ABC-3 is listed. WHILE YOU ARE STILL CONNECTED TO YOUR LOCAL NODE\index{local node} you connect to the distant node by sending a normal connect request,\index{connect request} in this case: 
 
 \begin{flushleft}
 \verb!C GOLD! or \\
