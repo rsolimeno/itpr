@@ -13,6 +13,7 @@
 \usepackage{tabularx}
 \usepackage{fancyhdr} %to format headers and footers
 \pagestyle{fancy} %use fancyheader
+\usepackage{imakeidx}
 
 %% fiddle with chaptermark so we can make it not all caps
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
@@ -72,6 +73,8 @@
 \author{Larry Kenney, WB9LOZ
 }
 \title{INTRODUCTION TO PACKET RADIO}
+\makeindex
+
 \begin{document}
 
 \frontmatter
@@ -109,7 +112,9 @@
 
 \backmatter
 
-\include{colophon}
+\printindex
+
+%\include{colophon}
 
 
 \end{document}
