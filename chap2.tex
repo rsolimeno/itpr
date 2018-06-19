@@ -18,7 +18,7 @@ Now I need to point out the various levels of communicating you can do from the 
 
 Once you have your communications program or packet software up and running, you can move on to the next step. If you're using a TNC, you now need to set it up. First, turn it on. You should get a ``greeting'' or sign on message from the TNC on your screen showing the manufacturer's name, the software version, a date, etc. If you see a bunch of gibberish, such as \verb!&tf$d.h#sxn!, it means that the parameters of the TNC and computer don't agree and you'll have to make adjustments. If you don't see a ``greeting'' or the gibberish, check your cables and connections. Make sure that you have everything connected properly, that the right wires are on the right pins, and so on.
 
-Next, do a ``control C'' (press the CNTL and the letter C simultaneously); this puts the TNC in COMMAND mode, the level where you communicate directly with the TNC from the keyboard. You should see ``cmd:'' on your screen. Enter: \\
+Next, do a ``control C'' (press the CNTL and the letter C simultaneously); this puts the TNC in COMMAND \index{COMMAND mode}, the level where you communicate directly with the TNC from the keyboard. You should see ``cmd:'' on your screen. Enter: \\
 \begin{flushleft}
 \verb!MYCALL ---- !
 \end{flushleft}
@@ -51,7 +51,7 @@ Now enter the following commands:
 \verb!MRPT ON <CR>!
 \end{flushleft}
 
-For those using packet software and a modem instead of a TNC, you should have already entered your callsign in the configuration file during the set up procedure. If you have not, refer to the software instructions for preparing the configuration file for your station. Also note that with this software, you don't enter Control C to go into command mode. You simply use the ESC (Escape) key prior to entering each command.
+For those using packet software and a modem instead of a TNC, you should have already entered your callsign in the configuration file during the set up procedure. If you have not, refer to the software instructions for preparing the configuration file for your station. Also note that with this software, you don't enter Control C to go into command mode.\index{COMMAND mode} You simply use the ESC (Escape) key prior to entering each command.
 
 You're now ready to go on the air! Turn on your radio, make sure the volume is turned up about a third of a turn (about the ``10 or 11 o'clock'' position) and make sure the squelch is set. It should be at the point where the background noise disappears, just as it would be set for a voice QSO. Tune the receiver to any odd numbered frequency between 144.91 and 145.09 or 145.61 and 145.79 MHz and set the rig for simplex operation. You might have to tune around for a frequency with activity in your area. Watch your screen. You should soon be seeing the packets that are being sent over the air by other stations.
 
@@ -71,7 +71,7 @@ The asterisk indicates that you're receiving the packet from W6PW-1, not the ori
 
 You'll also notice that some callsigns have a trailing number attached to them. On packet you can have up to 16 different stations on the air at the same time using the same callsign. That's where the numbers at the end of the callsign come into play. The calls W6PW, W6PW-1, W6PW-2, W6PW-3, W6PW-4 and W6PW-5 are all individual stations operating under the same station license. A callsign without a number is the same as -0. These numbers are called Secondary Station IDs or SSIDs, and are used to differentiate between the various stations. There should never be more than one station using the same callsign and SSID on the air at the same time.
 
-Now that you're familiar with what you might see on packet, you're ready to make your first packet QSO! If you're using a TNC, make sure it's still in command mode. (Remember, it's Control-C.) Watch for a familiar call on the screen or note calls you see frequently. Be sure to note whether or not a digipeater is being used. When the station you want to contact is finished with his QSO, enter the command: 
+Now that you're familiar with what you might see on packet, you're ready to make your first packet QSO! If you're using a TNC, make sure it's still in command mode.\index{COMMAND mode} (Remember, it's Control-C.) Watch for a familiar call on the screen or note calls you see frequently. Be sure to note whether or not a digipeater is being used. When the station you want to contact is finished with his QSO, enter the command: 
 
 \begin{flushleft}
 \verb!C ----! or \\
@@ -86,11 +86,11 @@ Now that you're familiar with what you might see on packet, you're ready to make
 
 \noindent means connect to WB9LOZ via W6PW-1. If you're successful, you should soon see 
 
-\noindent ``\verb!*** CONNECTED TO (callsign)!'' on your screen and your first packet QSO is underway!
+\noindent ``\verb!*** CONNECTED TO (callsign)!''\index{CONNECTED} on your screen and your first packet QSO is underway!
 
-You have now entered the third level of communications, called CONVERSE mode, and this is where you communicate from the keyboard to the radio. Anything you type on the keyboard will be transmitted over the air as a packet every time you hit a \verb!<CR>! and it will appear on the other station's screen. Anything sent by the other station will be transmitted to you and will appear on your screen.
+You have now entered the third level of communications, called CONVERSE mode\index{CONVERSE mode}, and this is where you communicate from the keyboard to the radio. Anything you type on the keyboard will be transmitted over the air as a packet every time you hit a \verb!<CR>! and it will appear on the other station's screen. Anything sent by the other station will be transmitted to you and will appear on your screen.
 
-When you're finished with your QSO, be sure to do a CONTROL C to get back into command mode on your TNC, or hit the ESC key if using the packet software, then enter D to disconnect from the other station. You'll see ``DISCONNECTED'' on the screen. If you get connected to a station but you don't receive a response, you might have reached an unattended station or a node. Don't despair, disconnect and try someone else.
+When you're finished with your QSO, be sure to do a CONTROL C to get back into command mode\index{COMMAND mode} on your TNC, or hit the ESC key if using the packet software, then enter D to disconnect from the other station. You'll see ``DISCONNECTED''\index{DISCONNECTED} on the screen. If you get connected to a station but you don't receive a response, you might have reached an unattended station or a node. Don't despair, disconnect and try someone else.
 
 You're on the way now to lots of packet fun and adventure! If you are still having problems at this point, contact a friend that has some experience on packet and ask for help. The initial set up of the computer, TNC, software and radio is probably the biggest stumbling block in packet. Any experienced packet operator will be happy to help you get through this process to get you on the air.
 \endinput

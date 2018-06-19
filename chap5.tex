@@ -1,53 +1,53 @@
 % chapter 5
 \chapter{INTRODUCTION TO THE BULLETIN BOARD SYSTEM}
-In this chapter of the series I will introduce you to the basics of bulletin board system (BBS) use; in chapter 6 I will discuss BBS commands in detail. There are now dozens of different packet radio bulletin board system programs available to the packet community. You might find a few minor differences in the commands used, but for the most part they are the same. If you find that a command does not function as I describe here, use the \verb!?! or \verb!H! -- \verb!HELP! command to get more specific details for the BBS program you're using.
+In this chapter of the series I will introduce you to the basics of bulletin board system (BBS) use; in chapter 6 I will discuss BBS\index{BBS} commands in detail. There are now dozens of different packet radio bulletin board system programs available to the packet community. You might find a few minor differences in the commands used, but for the most part they are the same. If you find that a command does not function as I describe here, use the \verb!?! or \verb!H! -- \verb!HELP!\index{HELP} command to get more specific details for the BBS program you're using.
 
 You connect to a BBS exactly the same way as you connect any other station. Don't forget the SSID for the BBS callsign if one is required. Once you're connected, you will receive a welcoming message, information for that particular BBS and some basic instructions. Read the information and the instructions carefully. The first or second time you connect you might receive a request to enter your name, QTH, zip code and home BBS for the system's user file. Some systems will simply ask you for the information, while others will ask you to ``register''. On some systems, the software will not allow you to use any of the commands except \verb!HELP! until you have entered this information.
 
-After you receive the welcoming message and information from the BBS, you should note that the last line ends with a \verb!>!. This is known as the PROMPT. When the BBS sends the prompt it is telling you that it has finished sending you information, and it is waiting for you to tell it what to do next. You do this by sending it a command. You must follow each command by a carriage return \verb!<CR>!, just like on your TNC, which you send by hitting the ``Enter'' or ``Return'' key.
+After you receive the welcoming message and information from the BBS,\index{BBS} you should note that the last line ends with a \verb!>!. This is known as the PROMPT. When the BBS sends the prompt it is telling you that it has finished sending you information, and it is waiting for you to tell it what to do next. You do this by sending it a command. You must follow each command by a carriage return \verb!<CR>!, just like on your TNC, which you send by hitting the ``Enter'' or ``Return'' key.
 
-When checking in to a BBS for the first time, you should become familiar with the commands available to you. Enter a \verb!?! or \verb!H! and read the general instructions for the BBS you're using. It should tell you how to get a list of the commands that are available. Review the command list to see what features the BBS offers.
+When checking in to a BBS\index{BBS} for the first time, you should become familiar with the commands available to you. Enter a \verb!?! or \verb!H! and read the general instructions for the BBS you're using. It should tell you how to get a list of the commands that are available. Review the command list\index{command list} to see what features the BBS offers.
 
-When entering a BBS command, you must be careful to enter it exactly as the program requires. Some commands are just a single letter, while other commands require added information. Computers are not very forgiving and expect things to be entered in proper form. Enter only one command at a time, and be sure to read the information that is sent to you by the BBS. Take your time, check out the various features that the BBS offers and enjoy yourself. There's no need to feel rushed or intimidated. If you get to a point where you don't know what to do next, don't give up and disconnect. Enter a \verb!?! or \verb!H! again for further assistance. That's what the help information is there for! Remember this important point: whenever you're using a BBS and you don't know what to do next, enter a \verb!?! or \verb!H! the HELP instructions. I suggest that you make a printed copy of the complete help document so that you have the information available as a reference when using the BBS.
+When entering a BBS command, you must be careful to enter it exactly as the program requires. Some commands are just a single letter, while other commands require added information. Computers are not very forgiving and expect things to be entered in proper form. Enter only one command at a time, and be sure to read the information that is sent to you by the BBS.\index{BBS} Take your time, check out the various features that the BBS offers and enjoy yourself. There's no need to feel rushed or intimidated. If you get to a point where you don't know what to do next, don't give up and disconnect. Enter a \verb!?! or \verb!H! again for further assistance. That's what the help information is there for! Remember this important point: whenever you're using a BBS and you don't know what to do next, enter a \verb!?! or \verb!H! the HELP instructions. I suggest that you make a printed copy of the complete help document so that you have the information available as a reference when using the BBS.
 
-Now let's go through the basic procedures you should follow when checking into a BBS. After you connect and receive the welcome message, you will receive a list of your mail if there are any personal messages addressed to your callsign. Enter the command \verb!RN! to read your mail. If that command isn't available, note the message numbers and then enter: \verb!R! followed by the message numbers, separating each by a space. Example:
+Now let's go through the basic procedures you should follow when checking into a BBS.\index{BBS} After you connect and receive the welcome message, you will receive a list of your mail\index{mail list} if there are any personal messages addressed to your callsign. Enter the command \verb!RN!\index{RN command} to read your mail. If that command isn't available, note the message numbers and then enter: \verb!R!\index{R command} followed by the message numbers, separating each by a space. Example:
 
 \begin{flushleft}
 \verb!R 24112 24174!
 \end{flushleft}
 
-If there were messages addressed to you, you should erase or ``kill'' them once you've read them. You can do this with the \verb!KM! command, which means ``Kill Mine''. This command will erase all messages that are addressed to you that have been read. You can also kill each message individually by entering:
+If there were messages addressed to you, you should erase\index{erase message} or ``kill'' them once you've read them. You can do this with the \verb!KM!\index{KM command} command, which means ``Kill Mine''. This command will erase all messages that are addressed to you that have been read. You can also kill each message individually by entering:
 
 \begin{flushleft}
-\verb!K XXXX!
+\verb!K XXXX!\index{K command}
 \end{flushleft}
 
 \noindent where the X's are the message number.
 
-After reading your mail, the next thing I recommend that you do is list the new messages, by entering \verb!L!. The BBS program updates the user file each time you check in, logging the latest message number. The next time you check in, only the new messages that have been received by the system are included in your list. The first time you check in, you might want to avoid using \verb!L! by itself. Many systems have more than 1000 active messages available, and since you haven't seen any of them, the \verb!L! will list all of them for you. As an alternative, I suggest that you use the \verb!LL! (LIST LAST) command. You enter \verb!LL! followed by a space and then the number of messages you'd like to see. Example:
+After reading your mail, the next thing I recommend that you do is list the new messages, by entering \verb!L!.\index{L command} The BBS\index{BBS} program updates the user file each time you check in, logging the latest message number. The next time you check in, only the new messages that have been received by the system are included in your list. The first time you check in, you might want to avoid using \verb!L! by itself. Many systems have more than 1000 active messages available, and since you haven't seen any of them, the \verb!L! will list all of them for you. As an alternative, I suggest that you use the \verb!LL! (LIST LAST)\index{LL command} command. You enter \verb!LL! followed by a space and then the number of messages you'd like to see. Example:
 
 \begin{flushleft}
 \verb!LL 30!
 \end{flushleft}
 
-\noindent will list the last 30 messages that were received by the BBS. When you receive the list, you'll note that each message has a number, and that the size of the message, the topic, the originating station, a date and time, the subject, and other information are given. I will discuss each of these parts later in the series. For now, note the numbers of the messages you're interested in reading - that's the number to the far left of the screen.
+\noindent will list the last 30 messages that were received by the BBS.\index{BBS} When you receive the list, you'll note that each message has a number, and that the size of the message, the topic, the originating station, a date and time, the subject, and other information are given. I will discuss each of these parts later in the series. For now, note the numbers of the messages you're interested in reading - that's the number to the far left of the screen.
 
-Some BBS programs have a paging feature that will send just enough information to fill your screen and then stop. You simply enter a \verb!<CR>! by hitting the ``Enter'' or ``Return'' key to tell the BBS to continue. When listing the new messages, you might have the option of reading the ones you're interested in before continuing with another page from the message list. As mentioned earlier, be sure to read the information that is sent to you by the BBS program before you proceed with your next operation.
+Some BBS\index{BBS} programs have a paging feature that will send just enough information to fill your screen and then stop. You simply enter a \verb!<CR>! by hitting the ``Enter'' or ``Return'' key to tell the BBS to continue. When listing the new messages, you might have the option of reading the ones you're interested in before continuing with another page from the message list. As mentioned earlier, be sure to read the information that is sent to you by the BBS program before you proceed with your next operation.
 
 To read the messages you're interested in, enter:
 
 \begin{flushleft}
-\verb!R XXXX!
+\verb!R XXXX!\index{R command}
 \end{flushleft}
 
 \noindent where the Xs represent the message number(s). Example:
 
 \begin{flushleft}
-\verb!R 14521 14528!
+\verb!R 14521 14528!\index{R command}
 \end{flushleft}
 
-Note that there is a space between the command and the number. If the paging feature is not available or not turned on, it's best to ``capture'' your messages or have your printer turned on when reading messages. They're apt to come in faster than you're able to read them. (By ``capture'' I mean using your communications program to save incoming data to a file. You can read it later after you've disconnected from the BBS.)
+Note that there is a space between the command and the number. If the paging feature is not available or not turned on, it's best to ``capture'' your messages\index{capture messages} or have your printer turned on when reading messages. They're apt to come in faster than you're able to read them. (By ``capture'' I mean using your communications program to save incoming data to a file. You can read it later after you've disconnected from the BBS.)
 
-Once you've read all the messages you're interested in, you have several options. You can look back at old messages, send messages to other stations, see what's available in the file directories - the BBS library, download a file, upload a file, check the list of stations that have recently checked in to the BBS or stations that have been heard on the BBS frequency, check the status of the BBS to find out what other stations are connected and who has mail waiting for them, or a variety of other things. We look at the BBS commands in detail in chapter 6 and explain how to do all of these things and more.
+Once you've read all the messages you're interested in, you have several options. You can look back at old messages, send messages to other stations, see what's available in the file directories - the BBS library, download a file, upload a file, check the list of stations that have recently checked in to the BBS or stations that have been heard on the BBS\index{BBS} frequency, check the status of the BBS to find out what other stations are connected and who has mail waiting for them, or a variety of other things. We look at the BBS commands in detail in chapter 6 and explain how to do all of these things and more.
 
-Oh, so that we don't leave you connected forever, when you're ready to leave the BBS, enter a \verb!B!. You should always use the \verb!B! command rather than just disconnecting so that the system updates your user file.
+Oh, so that we don't leave you connected forever, when you're ready to leave the BBS,\index{BBS} enter a \verb!B!. You should always use the \verb!B! command\index{B command} rather than just disconnecting so that the system updates your user file.
