@@ -1,0 +1,85 @@
+% Chapter 11
+\chapter{USING THE NODE NETWORK - PART 2 OF 2}
+\section{COMMANDS}
+\dots continued from chapter 10\\
+\subsection{ROUTES} The \verb!ROUTES! command (abbreviated as \verb!R!) will give you a list of the direct routes to other nodes from the node you're using. The direct routes are the ones where the node can connect directly to the other node. The quality of each route is shown along with the obsolescence count. (See the \verb!NODES! command in chapter 10 for an explanation of obsolescence count.) Any route marked with an exclamation point (!) means that the route values have been entered manually by the owner of the node and it usually means that the route is not reliable for regular use.
+
+\subsection{USERS} The \verb!USERS! command (abbreviated as \verb!U!) will show you the callsigns of all the stations now using the node that you're connected to. There are five descriptions used by the node to describe how users are connected:
+
+\begin{itemize}
+\item UPLINK: The station indicated is connected directly to the node.
+\item DOWNLINK: The node has made a connection from the first station to the second station.\\
+Example:\\
+\verb!DOWNLINK (K9AT-15 N6UWK)!\\
+would mean that the node connected to N6UWK at the request of K9AT.
+\item CIRCUIT: Indicates that the station indicated has connected FROM another node when the node and user callsign are on the left of the <--> and indicates that the station has connected TO another node if node is on the right of the <-->. If you see dashes between the arrows, the circuit is in use. If you see <~~>, the connection is in progress. The alias and call of any other nodes being used are shown prior to the user's callsign. Examples:\\
+\begin{itemize}
+\item Circuit (SFW:W6PW-1 WA6DDM) <--> AA6ZV would mean that WA6DDM is using this node, that he connected to it from the SFW node and is now connected to AA6ZV.
+\item N6PGH <--> Circuit (DIA:WB6SDS-2 N6PGH) would mean that N6PGH connected direct to this node and has connected to the DIA node.
+\item Circuit (SSF2:KA6EYH-2 KK6SD) <~~> (AMCYN:WZ6X-2) indicates that KK6SD has connected to the node you're using from the SSF2 node and is now attempting to connect to the AMCYN node.
+\end{itemize}
+\item CQ: See "\verb!CQ! command" below.
+\item HOST: The user is connected directly from the node terminal. This is seen when the owner of the node is a user, or the BBS associated with the node is using it to forward messages.
+\end{itemize}
+
+\subsection{CQ} The \verb!CQ! command is used both for calling CQ and for replying to the CQ of another station. The command is available only in the latest versions of NET/ROM and TheNet. Enter a \verb!?! when connected to a node to see if it's available there. The \verb!CQ! command is used to transmit a short text message from a node, and is also used to enable stations that receive the transmission to connect to the station that originated it. The command is entered as:\\
+
+\verb!CQ textmessage!\\
+
+The ``textmessage'' can be any information up to 77 characters long including spaces and punctuation, and it's optional. In response to a \verb!CQ! command, the node transmits the specified textmessage in ``unproto'' mode, using the callsign of the originating user as the source and ``CQ'' as the destination. As with all node transmissions, the SSID will be translated; that is, the SSID will be 15-N, where N is the SSID of the original callsign. WB9LOZ-0 would become WB9LOZ-15, WB9LOZ-1 would become WB9LOZ-14, etc.
+
+Here is an example of how the node \verb!CQ! command is used: If station W6XYZ-3 connects to a node and issues the command:\\
+
+\verb!CQ Anybody around tonight?!\\
+
+the node would then transmit:\\
+
+\verb!W6XYZ-12>CQ:Anybody around tonight?!\\
+
+After making the transmission in response to the \verb!CQ! command, the node arms a mechanism to permit other stations to reply to the CQ. A station wishing to reply may do so simply by connecting to the originating callsign shown in the CQ transmission (W6XYZ-12 in the example above). Note here that you connect to the station using the translated SSID. A \verb!CQ! command remains armed to accept replies for 15 minutes, or until the originating user issues another command or disconnects from the node.
+
+Any station connected to a node may determine if there are any stations awaiting a reply to a CQ by issuing a \verb!USERS! command. An armed CQ channel appears in the USERS display as:\\
+ 
+(Circuit, Host, or Uplink) <~~> CQ(usercall)
+
+The station may reply to such a pending CQ by issuing a \verb!CONNECT! to the user callsign specified in the CQ(...) portion of the USERS display--it is not necessary for the station to disconnect from the node and reconnect.
+
+Here's what a typical transmission would look like: (\textbf{bold text} = entered by user)\\
+
+\noindent cmd: \textbf{C W6PW-1}\\
+   cmd: *** Connected to W6PW-1\\
+   \textbf{USERS}\\
+   {SFW:W6PW-1} NET/ROM 1.3 (669)\\
+   Uplink(K9AT)\\
+   Circuit(LAS:K7WS-1 W1XYZ)  <~~>  CQ(W1XYZ-15)\\
+   Uplink(WB6QVU)             <-->  Circuit(SFBBS:W6PW-3 WB6QVU)\\
+   \textbf{CONNECT W1XYZ-15}\\
+   {SFW:W6PW-1} Connected to W1XYZ\\
+   \textbf{Hello!  This is George in San Francisco}\\
+   Hi George!  Thanks for answering my CQ.   etc.\\
+   
+Users of the \verb!CQ! command are cautioned to be patient in waiting for a response. Remember, your \verb!CQ! will remain armed for 15 minutes, and will be visible to any user who issues a \verb!USERS! command at the node during that time. Wait a few minutes before issuing another \verb!CQ! to give other stations a chance to reply to your first one! Don't be surprised, however, if you don't receive a response. For some unknown reason, I've found that very few users take advantage of the feature. When you connect to a distant node, the \verb!CQ! command is a great way to start a QSO with a station in that area, but more users need to be made aware of the \verb!CQ! feature before it will become very useful.
+
+\subsection{BBS} The \verb!BBS! command (which cannot be abbreviated) is available on nodes using the G8BPQ software and having an associated packet bulletin board system. Entering \verb!BBS! will connect you to the associated BBS.
+
+\subsection{IDENT} The \verb!IDENT! command (abbreviated as \verb!I!) found on NET/ROM nodes will give you the identification of the node you're using. 
+
+\subsection{INFO} The \verb!INFO! command (abbreviated as \verb!I!) found on TheNet nodes will give you information about the node, usually the alias, callsign and location. The \verb!INFO! command (abbreviated as \verb!I!) found on G8BPQ nodes will give you the identification of the node and a list of the commands available.
+
+\subsection{MHEARD} The \verb!MHEARD! command (abbreviated as \verb!M!) found on TheNet and G8BPQ nodes will give you a list of stations heard by the node. If the node has more than one port, you must specify which port you want the listing for by entering a space after the \verb!M! and then the port number. Examples:\\
+
+\verb!M 1! will give you a list for port 1\\
+\verb!M 2! will give you a list for port 2\\
+
+Use the PORTS (P) command to get a list of the ports and the associated frequencies.
+
+\subsection{PARMS} The \verb!PARMS! (Parameters) command (abbreviated as \verb!P!) found on NET/ROM and TheNet nodes is for the owner's use in determining how his station is working. It will give you a list of the node's parameters.
+
+\subsection{PORTS} The \verb!PORTS! command (abbreviated as \verb!P!) found on G8GPQ nodes will list the frequencies of all ports available.
+
+\subsection{BYE} The \verb!BYE! command (abbreviated as \verb!B!) is available on TheNet and G8BPQ nodes. It's used for disconnecting from the node. If the node has other software, you must disconnect using the \verb!D! command in your TNC.
+
+\subsection{?} Entering a \verb!?! will give you a list of the commands available on the node.
+
+Remember, when you are connected to a network of nodes, any commands you send will be directed to the last node you connected to.
+

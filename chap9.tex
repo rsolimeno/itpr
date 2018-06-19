@@ -1,0 +1,42 @@
+% Chapter 9
+\chapter{PACKET RADIO WHITE PAGES DATABASE}
+In this part of the series we're going to look at the White Pages. No, not your local telephone directory, but the packet radio directory known as the ``White Pages''. You help supply the information for ``WP'', and you can also use it to find the home BBS, QTH and zip code of your friends on packet.
+
+``White Pages'' was initially designed by Eric Williams, WD6CMU, of Richmond, California. Hank Oredson, W0RLI, later added a WP database to his packet bulletin board software, and now most of the BBS software programs have some form of the White Pages available. It's a database of packet users showing their name, home BBS, QTH and zip code. It's updated and queried by packet message, allowing stations from all over the world to take advantage of it.
+
+When users enter their name and other information into their BBS user file, it gets included in the WP database. The White Pages server at each BBS also scans the forwarding headers of all messages received, extracts callsign information and adds that to the database. The software automatically assembles an update once a day containing all of the new WP information and any changes the database has received in the past 24 hours. This update is then forwarded to the regional White Pages server. The regional server, in turn, takes all of the information it has received from other BBSs and sends out updates to other BBSs in the area, as well as to the N6IYA BBS in Fulton, California, the national White Pages server. As a result, we have a large database of information on packet users world-wide. By querying WP, you can easily find the name, home BBS, QTH and zip code of other stations on packet.
+
+If your BBS is operating with its own WP database, you may make inquiries of it using either the I or Q command, depending on the software being used. Simply enter I or Q followed by the callsign you'd like information about. If you wanted information on WB9LOZ, for example, you would enter:\\
+
+\verb!I WB9LOZ or Q WB9LOZ!\\
+
+Check the help information on your BBS to see which command is the one used there. Some BBSs also offer commands that allow you to search the WP database for station lists using location or zipcode information. Try \verb!?I! or \verb!?Q! or \verb!?WP! for details.
+
+If your local BBS doesn't have the information you are looking for, it can be obtained from your regional WP server or from the national WP server. Since query messages are read and answered by the WP software, not by a person, you must use the correct format:\\
+
+\verb!callsign ?!
+
+You address your query to WP @ the callsign of the server you want to use. The word QUERY is entered for the subject. You may then may include as many requests as you wish in the text of each message, but each must be on a separate line.
+
+Here's an example of a message sent to N6IYA, the national White Pages server:\\
+
+\noindent \verb!SP WP @ N6IYA.#CCA.CA.USA.NOAM!     \hfill  (The same format would be used \\     
+\verb!Enter subject of message: Query!     \hfill  to send a query message to your\\
+\verb!Enter text:!                         \hfill  regional WP database.)\\
+\verb!K9AT ?!\\
+\verb!WA6DDM ?!\\
+\verb!NG2P ?!\\
+\verb!W1KPL ?!\\
+(\verb!Control Z! OR \verb!/EX!)\\
+
+\noindent Capital and lower case letters may both be used within the message.
+
+Just like all other packet messages, messages addressed to WP are forwarded from BBS to BBS toward their destination. If a BBS operating with the W0RLI WP Server handles a query message, it will respond with any pertinent information that it has available. As a result, you might receive more than one response to your WP query.
+
+If the information on a callsign in a WP database is not updated, it is deleted after a certain length of time specified by the sysop. This time frame is normally 90 to 180 days, although some systems retain information for up to a year.
+
+It is important to note here that you should choose ONLY ONE BBS as your home BBS, the one where you want all of your messages delivered. You should also make sure that it is a full service BBS, not a personal mailbox, or mail will not be forwarded to you. Always enter that callsign when you are asked to enter your home BBS, even if you are using another system at the time.
+
+When a message arrives at the destination BBS given in the ``@ BBS'' column, some of the BBS software will check the White Pages information to make sure that the message has been delivered to the right place. If it finds that a different BBS is listed as the addressee's home BBS, it will insert that BBS callsign in the message and send it on its way. If you enter different home BBS calls on several BBSs, your mail could easily end up being sent from BBS to BBS and never reach you.
+
+If you move or change your home BBS, you should then make sure that you update the information for your call in the White Pages database. Use the \verb!NH!, \verb!NQ! and \verb!NZ! commands to update the information. Making sure that the information in the White Pages is correct will help to get your messages delivered to the correct BBS.

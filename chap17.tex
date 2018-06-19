@@ -1,0 +1,43 @@
+% Chapter 17
+\chapter{PACKET RADIO REVIEW - ANSWERS}
+How did you do on the review quiz in the previous part of this series? If you haven't taken it, you might want to read chapter 16 and take the quiz now before reading any further.
+
+Here are the correct answers and the series part numbers where you can read more about the subject:\\
+
+\begin{enumerate}
+\item Answer C is correct. The three TNC modes of communication are Command, Converse and Transparent. Command mode is for communicating with the TNC. Converse mode is for normal QSOs, connects to a BBS or mailbox, etc. and Transparent mode is used for binary file transfer. (Chapters 2, 3 and 14)
+\item The UNPROTO command is used for setting the transmit path for both beacons and CQs. (Chapters 3 and 13)
+\item The CHECK command is used for setting a timeout value in your TNC. If set to a value other than zero, the TNC will attempt to recover a connection after a certain specified time if nothing is received from the other station. This command is used in combination with the AX25L2V2 command. (Chapter 13)
+\item The MCON command (Monitor while CONnected) is used to monitor other traffic on the frequency while you're connected to another station. (Chapter 3)
+\item When monitoring, the asterisk indicates the station that you actually heard the packet from. The MRPT command must be ON for the monitor display to show digipeaters. (Chapters 2 and 3)
+\item The packet node network improves communications because packets are acknowledged between your station to the first node, and then node to node to the destination. A packet doesn't have to reach the destination before an ack is returned. (Chapters 4, 10 and 11)
+\item When using the node network (no matter who you're connected to) you disconnect by going to command mode on your TNC and entering a D, just like at other times. Some nodes have the B (Bye) command available, so a B might also work. The fact that you're using several nodes or are connected to a distant station makes no difference. The network will take care of disconnecting all stations and links. (Chapters 4, 10 and 11)
+\item N6ZYX-2 would appear as N6ZYX-13 if he connects to you using a node. The nodes change the SSID using the formula 15-N. (Chapter 10)
+\item The two most probable causes for a packet not to get through are collisions with other packets on the frequency and noise due to weak signals. (Chapter 15)
+\item BBS commands: (Chapters 5, 6, 7 and 8)
+\begin{enumerate}
+\item To receive a list of messages you enter:
+L
+\item To read message 47134 enter:
+R 47134
+\item To download a file in the General (G) directory called FCCEXAMS.LST you'd enter:
+D GENERAL FCCEXAMS.LST or
+DG FCCEXAMS.LST
+depending on the software being used by your BBS.
+\item To send a personal message to Jim, WA6DDM, you would enter:\\
+SP WA6DDM @ W6PW.CA.USA.NOAM\\
+If his callsign was known in the White Pages database on your BBS, you would only have to enter:\\
+SP WA6DDM
+\item To change your home BBS from W6ABC to W7XYZ you would enter:
+NH W7XYZ
+\end{enumerate}
+\item If you wanted to send an NTS message to Tom Smith, 123 Main Street, in Keene, NH 03431, you would enter the following at the BBS prompt >
+ST 03431 @ NTSNH
+(Chapters 6 and 12)
+\item A message with a STATUS of BF means that the message is a bulletin and that it has been forwarded to all stations that are supposed to receive it from the BBS you're using. (Chapter 8)
+\item When entering the SUBJECT of a bulletin, you should give information that will help users listing your bulletin to determine whether or not they should read it. If you're entering a SALE or WANTED bulletin, tell what the item is and give the manufacturer and model. For an INFO bulletin indicate what you're offering information about. (Chapters 6 and 8)
+\item To find the call of the HOME BBS of your friends, use the White Pages database. If the BBS you're using has the WP feature enabled, you'll find the I command (or Q command on some systems) to be useful, otherwise send an inquiry to your regional WP server or the national WP server. (Chapter 9)
+\item The maximum value for MAXFRAME is 7. MAXFRAME is the number of packets transmitted by your TNC contiguously, and the number of unacknowledged packets the TNC can have outstanding. You decrease MAXFRAME when the conditions are poor. Your TNC will send fewer packets at one time, so there will be less information to collide with other packets on the frequency and less chance of information being wiped out by noise. (Chapter 14)
+\end{enumerate}
+
+There is no passing grade on the quiz. It was designed for you to check your general packet knowledge, and you'll have to be your own judge of that. I hope you did well on it!

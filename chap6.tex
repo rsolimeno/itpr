@@ -1,0 +1,254 @@
+% Chapter 6
+\chapter{BBS COMMANDS - USING THE PACKET BBS}
+In chapter 5 I discussed the basics of using a packet bulletin board system. Now let's look at the commands you use on a BBS. As previously mentioned, some of the commands on your BBS might vary slightly from the information I'll be presenting to you here. Remember, all of the commands you enter must be followed by a carriage return \verb!<CR>!.
+
+\verb!?! or \verb!H! (Help) - Every BBS has help available for the user. When you don't understand how to use a command, the help documentation will give you the details. For help on a specific command enter: \verb!?! or \verb!H! followed by the letter of the command you'd like more information about. Either \verb!?! or \verb!H! will work on some BBSs. On others, only one of them will work.
+
+Example: \verb!?L! or \verb!HL! will give you details on how to use the \verb!LIST! command and its many variations.
+
+A \verb!?! or an \verb!H!, by itself, will give you general help information and specific instructions on how to use the help documentation on your BBS.
+
+\section{MESSAGE COMMANDS}
+\subsection{LIST}
+One of the commands you will want to use when connecting to a BBS is the \verb!LIST! command. There are many variations available, but \verb!L!, by itself, is the one used most often:
+
+\begin{itemize}
+\item \verb!L! (List) - Lists all new messages that have been received by the BBS since you last logged in, except for other users' personal messages. This command will show you all of the bulletins and NTS messages on the BBS that you haven't seen, plus any personal messages that are to or from you.
+
+\noindent If you want to list specific messages, you may use one of the following variations of the L command:
+
+\item \verb!LM! - (List Mine) - Lists all messages addressed to you.
+\item \verb!LL #!- Lists the last \#{} messages. \\
+Example:\\
+\verb!LL 30! will list the last 30 messages received at the BBS, excluding others' personal messages.
+\item \verb!L> callsign! or \verb!category! - Lists all messages TO the callsign or the category indicated.\\ Examples:\\
+
+\verb!L> N6XYZ!\\
+\verb!L> SALE!
+\item \verb!L< callsign! - Lists all messages FROM the callsign indicated. \\
+Example:\\
+
+\verb!L< N6XYZ!
+
+\item \verb!L@ designator! - Lists all messages that have that ``designator'' in the @ BBS column of the message header.\\ 
+Example:\\
+
+\verb!L@ NCA!\\
+
+\noindent will list all messages with NCA in the @ BBS column.
+\end{itemize}
+
+There are several other variations depending on the type of BBS you're using. Enter: \verb!?L! for a complete list.
+
+\section{READ}
+To \verb!READ! a message, you enter an \verb!R! followed by a space then the message number. Examples: If you wanted to read message 25723, you would enter:
+
+\begin{flushleft}
+\verb!R 25723!
+\end{flushleft}
+
+To read several messages, such as numbers 25723, 25726 and 25730, you'd enter:
+
+
+\begin{flushleft}
+\verb!R 25723 25726 25730!
+\end{flushleft}
+
+\noindent Note that you separate the numbers with a space, not commas.
+
+You may also read messages in a way that will give you all of the forwarding headers in detail, rather than giving you just the callsigns. The forwarding headers show the list of BBSs that handled the message to get it from the originating BBS to the one you're using, along with the date and time it was received, the BBS address and other information. Depending on the BBS software being used, either the \verb!RH! or \verb!V! command replaces the \verb!R!. Examples: To read message 25723 with the full headers, you'd enter either: 
+
+\begin{flushleft}
+\verb!RH 25723! or \\
+\verb!V 25723!
+\end{flushleft}
+
+There is another variation of the READ command that you'll find very useful, and that's \verb!RM!. Entering \verb!RM! by itself will give you all of the messages addressed to you that have not yet been read.
+
+\section{ERASING MESSAGES}
+Once you have read a personal message, please erase it. The sysop will appreciate your help in clearing out the ``dead'' messages. You use the \verb!K - KILL! command to do this. You can enter:
+
+\begin{flushleft}
+\verb!K #!, such as \verb!K 25723!
+\end{flushleft}
+
+\noindent which will erase that particular message, or you can enter:
+
+\begin{flushleft}
+\verb!KM! 
+\end{flushleft}
+
+\noindent which will erase all of the personal messages you have read.
+If you use the \verb!KM! command, the BBS will list the message numbers for you as they're killed.
+
+\section{THE S COMMAND(S)}
+You'll find the \verb!S! command used for \verb!SEND!ing messages on all BBSs, and on some systems the \verb!S! is also used for \verb!STATUS!. On W0RLI--type systems, the letter \verb!S! by itself will give you a reading of the BBS status, showing the callsigns of stations using the system, the time that they connected, the ports and tasks they're using, etc. It will also show you information on the mail waiting for users and on the messages waiting to be forwarded to other bulletin board systems. \verb!S!, by itself, on other systems will either prompt you for further information on sending a message, or it will give you an ``illegal command'' error message. (\verb!STATUS! on an FBB BBS is obtained by entering \textbf{!} - an exclamation point.)
+
+SENDING A MESSAGE: The \verb!S! command is mainly used for sending a message, but it should always be used with another letter specifying the type of message you're sending. There are three types of messages found on packet bulletin board systems: Personal, Bulletin, and Traffic.
+
+\begin{itemize}
+\item \verb!SP! is used for sending a personal message to one other station,
+\item \verb!SB! for sending a bulletin (a message available to all), and
+\item \verb!ST! for sending a message that's going to be handled by the National Traffic System.
+\end{itemize}
+
+You're able to send a message to one particular person, to everyone on the local BBS, to everyone at every BBS in your area, in the entire state, all across the country or around the world. It all depends on how you address the message.
+
+Each message has three parts to it: The ADDRESS, the SUBJECT and the TEXT. I'll discuss each part separately.
+
+\section{THE MESSAGE ADDRESS}
+\subsection{Personal messages:} To send a personal message you enter \verb!SP! followed by a space and then the callsign of the person you want to receive the message. Normally, that's all that's needed. A database of user information called the White Pages will fill in the address if it's known. (I'll discuss the White Pages later on in this series.) If the callsign is not known, you must then enter the full packet address, known as the hierarchical address. This address consists of the callsign of the BBS where you want the message to be delivered, the local area, state or province, country and continent. The local area is usually preceded by the \# sign, and is optional in some areas. However, it helps deliver the message to its final destination more directly, so use it if you know what it is. The state or province is the two-letter abbreviation used by the post office; the country is the three-letter country code and the continent is the four-letter continent code. You should find a list of these codes on your BBS either in the help file or in the files section.
+
+Here are some examples of some correctly entered addresses for a personal message:\\
+
+\begin{itemize}
+\item \verb!SP WB9LOZ @ W6PW.#NCA.CA.USA.NOAM! - That's how you would address a message to me in San Francisco.\\
+
+\item \verb!SP WM2D @ WA2NDV.#NLI.NY.USA.NOAM! - WM2D uses the WA2NDV BBS located in the Northern Long Island (\#{}NLI) area of New York state.\\
+
+\item \verb!SP G8BPQ @ G3DAD.#32.GBR.EURO! - Note that BBSs in Great Britain, Japan and some other countries use numbers for the local area and do not use the state part of the address.\\
+\end{itemize}
+
+\noindent The hierarchical address will be discussed in detail in chapter 7 of this series.
+
+\subsection{Bulletins:}
+A bulletin is addressed to a CATEGORY. The category is limited to six characters and should indicate the nature of the message, such as PACKET, INFO, SALE, WANTED, DEBATE, ARES, etc. To send a bulletin to more than just the local BBS, you must add a forwarding designator that will specify the area where you want the message distributed. This can be the local area, the entire state, a region, all of the US or the world. Each state uses different designators, so you'll need to check your local BBS for this information. Try entering \verb!?S! or \verb!?SB! for a list.
+
+These are some examples of how you would address a bulletin:\\
+
+\begin{itemize}
+\item \verb!SB INFO! - This bulletin is offering "information" (on a topic that would be given in the "subject") and it would be available only to users of the BBS where it was entered since no distribution is specified.
+\item \verb!SB SALE @ CA! - This bulletin lists an item that's for sale, and it will be sent to all BBSs in the state of California. (Note: CA is used in California, but the designator used in your state might use a different format.)
+\end{itemize}
+
+
+\noindent National Traffic System (NTS) messages: NTS messages require special addressing and a prescribed format. They're entered:\\
+
+\begin{flushleft}
+\verb!ST ZIPCODE @ NTSXX!
+\end{flushleft}
+
+
+\noindent where the zipcode is that of the person the message is going to, and the XX is the two-letter state abbreviation. NTS messages can be sent to the US and possessions and Canada only.\\
+
+\noindent Examples:\\
+
+\begin{flushleft}
+\verb!ST 03452 @ NTSNH!\\
+\verb!ST 60626 @ NTSIL!\\
+\verb!ST V7L1J3 @ NTSBC!\\
+\end{flushleft}
+
+\section{THE MESSAGE SUBJECT}
+When you have the address line of your message complete, you enter a carriage return \verb!<CR>!. You'll then receive a prompt asking for the SUBJECT or TITLE of the message.
+
+For a personal message you may enter anything you wish, but you're limited to a maximum of 30 characters. I usually indicate what I will be discussing in the message.
+
+For a bulletin, you should enter a brief description (again, 30 characters or less) describing what the message will be about. Lots of bulletins are received everyday, so your SUBJECT should help the one listing messages to determine whether or not your message is to be read. You should attempt to describe the contents of your bulletin briefly but with detail. For SALE or WANTED messages, be specific about the equipment and include the brand and model. If you used INFO as a category, indicate what the information is about. For a personal message, the subject entered is really not important, since people will read any message directed to them. For a bulletin, though, the subject is critical. It is in these thirty characters that you must ``sell'' your message to potential readers.
+
+An NTS message requires a specific format for the subject: City, State, Telephone Area Code and Prefix. Example:\\
+
+\verb!Boston, MA 617-267!
+
+\section{MESSAGE TEXT}
+Next, you'll be asked to enter the TEXT of the message. This is where you enter the actual message information. When entering the text, you should insert carriage returns at the end of each line, as if you were typing a letter. A normal line has a maximum of 80 characters, so when you have 70 to 75 characters typed, enter a carriage return and continue on the next line. This will prevent words from wrapping around to the next line and the program inserting an unnecessary blank line in the text. Some programs require the carriage return or anything after the first 80 characters will not be able to be read.
+
+An NTS message requires you to use the ARRL message format for the text. I will tell you more about the National Traffic System and NTS messages in part 12 of this series.
+
+When you have completed the text, you end the message with a CONTROL Z (you send a CONTROL Z by holding down the CONTROL key and hitting the Z key) or with \verb!/EX! at the beginning of a new line. You must follow the CONTROL Z or the \verb!/EX! with a carriage return \verb!<CR>!.
+
+Many BBSs will send you information about your message once it has been received completely: the message identification, the size, and the fact that it has been saved, etc. Some systems do not, so you have to make sure you receive the BBS prompt. Only when you receive the prompt are you sure that the message has been accepted by the BBS.
+
+\section{FILE DIRECTORY COMMANDS}
+The files on a BBS offer you a variety of information on a wide range of subjects. The file section is often referred to as the BBS library. Each BBS has its own unique set of files as determined by the sysop (the system operator), yet the libraries of many BBSs contain a lot of the same information. The files are stored in directories according to subject and are listed by file name.
+
+To determine what directories and files are available on your BBS you use the \verb!W! (WHAT) command. Entering \verb!W!, by itself, gives you a list of the directories available on the BBS along with an associated letter or topic name and a general description of the subject for each directory. To list the files stored in a specific directory you enter \verb!W! followed the directory letter or topic name that you received with the directory list.
+
+Example: \verb!WA! or \verb!W ARRL! depending on the software used at your BBS. Enter: \verb!?W! to find out which form is used on your system.
+
+If you want to read a file you use the \verb!D! (Download) command. You enter \verb!D! followed by the letter or topic name for the directory where it's stored and then the exact file name. Here are some examples:
+
+\begin{itemize}
+\item \verb!DF FCCEXAM.LST or D FCC FCCEXAM.LST!
+\item \verb!DM TS440S.MOD or D MODS TS440S.MOD!
+\end{itemize}
+
+\noindent You can enter \verb!?!D to find out which form is used on your BBS.\\
+
+To send a file to the BBS you use the U (Upload) command. The command must be used with the letter or topic name for the directory you want to store the file in, followed by the filename you're assigning to the file. The filename can have up to 8 characters preceding the period and 3 characters following the period. (Normal DOS format.) Some examples:
+
+\verb!UG FLEAMKT.INF or U GENERAL FLEAMKT.INF!\\
+
+would upload a file named FLEAMKT.INF into the G or GENERAL directory.\\
+
+\verb!UP BBSTIPS.01 or U PACKET BBSTIPS.01!\\
+
+would upload the file BBSTIPS.01 into the P or PACKET directory. The BBS program will not allow you to upload a file with a filename that already exists. Some directories are set by your local sysop for downloading only, so they won't permit you to upload files to them. Enter ?U for more information on uploading to your local BBS.
+
+\section{OTHER COMMANDS}
+You'll find a variety of other commands available on your BBS, but which ones you find depends on the software being used. Here is an explanation of some of the ones you might find.
+
+\verb!A! - ABORT - Many systems offer the \verb!A! (Abort) command, allowing you to stop the BBS from sending you further information. If you want to stop receiving a message list, a message, a file, or whatever is being sent to you, enter an \verb!A! followed by a \verb!<CR>!. When the TNC buffer is emptied, the flow of data will stop.
+
+\verb!COPY! - The COPY command is a \verb!C! on some systems and \verb!SC! (SEND COPY) on some others. The command is used to make a copy of an existing message and send it to another station. Enter \verb!?C! or \verb!?SC! for information.
+
+\verb!C! - CONFERENCE - Some BBS software offers a conference mode. This lets BBS users engage in a round-table QSO. Enter \verb!?C! on systems where this feature is available to get specific information.
+
+\verb!D! - DOS - The FBB BBS offers FBBDOS for listing, downloading, uploading and copying files, along with some other features. If you're using an FBB system, enter \verb!?D! for specific information.
+
+\verb!E! - EDIT - If you enter a message and then notice that you made an error entering the addressee's callsign, home BBS or address or decide you want to change the Subject of the message, some BBSs offer the EDIT command to make the desired changes. You can only change the message type, TO, BBS, address and subject. You cannot edit the message text. Enter \verb!?E! for details.
+
+\verb!F! - SERVERS - The FBB software offers several servers which you access by entering \verb!F!, by itself. Enter \verb!?F! on an FBB BBS for an explanation of the servers available.
+
+\verb!G! - GATEWAY - A gateway feature is available on some BBSs, allowing you to connect to stations on a different BBS port than the one you're using. Enter \verb!?G! for details on how to use the gateway.
+
+\verb!I! - INFO - This command can give you details on the location of the BBS, the hardware, software and RF facilities of the system you're using, or on some systems, a page of upcoming events, helpful hints, or other useful information.
+
+On W0RLI and F6FBB type BBSs, there are several other variations of the \verb!I! command:
+
+\verb!I callsign! - gives you the name, QTH, zip code and home BBS of the person with that callsign, if they're listed in the local "White Pages" database. Example:\\
+
+\verb!I K1TGZ!\\
+
+\verb!IZ zipcode! - gives you a list of all active packet stations in the specified zip code that are stored in the local ``White Pages''. An asterisk may be used in place of the end numbers to give you a wider area. Examples:\\
+
+\verb!IZ 94114! would give you stations listed in the 94114 zip code only.
+\verb!IZ 941* !would give you the stations in all zip codes that begin with 941.
+\verb!I@ BBS! - lists all callsigns in the "White Pages" having the specified BBS as their home BBS. Example:
+\verb!I@ W6PW!
+\verb!IH location! - lists all callsigns in the "White Pages" having the specified location. Examples:
+\verb!IH CA!
+\verb!IH GBR!
+Enter: \verb!?I! for more detailed information on using this command.
+
+\verb!J! - Displays a listing of stations that were heard by the BBS or that connected to the BBS. The command must be used with a port identifier, such as \verb!JA!, \verb!JB!, etc. If entered by itself, \verb!J! will list the ports for you or give you an error message. You'll find several variations of the \verb!J! command depending on the type of software being used. Enter: \verb!?J! for details.
+
+\verb!M! - On MSYS BBSs \verb!M!, by itself, will give you the message of the day.
+
+\verb!N! - The \verb!N! command has several variations that are used for entering your name, QTH, zip code and home BBS. To enter your name you type the letter \verb!N! followed by a space and then your first name, such as:\\
+ 
+\verb!N Larry!
+
+Your QTH is entered using \verb!NQ! followed by a space then your full city name and two letter state abbreviation, such as:\\
+
+\verb!NQ San Francisco, CA!\\
+
+You enter your zip code with \verb!NZ! followed by a space and your five-digit zip. \verb!NH! is the command for entering your ``home BBS''. This is the system that you plan to use regularly and want all of your personal messages delivered to. Make sure that it's a full service BBS, not a personal mailbox, since only full service systems are included in the message forwarding network. You enter your home BBS by typing \verb!NH! followed by a space and then the callsign of the BBS, such as:\\
+
+\verb!NH W6PW!\\
+
+\noindent Note: SSIDs are not used with BBS operation except for when making the initial connection. Most BBS software ignores all SSIDs.
+
+REBBS type systems will ask you to register and you'll then be prompted for your name and other information. FBB type systems will automatically ask for your name and other information the second time you connect. On both of these BBSs, you will only need to use the \verb!N! commands to change your user information.
+
+This user information is stored at the local BBS and is also sent to a central database known as the "National White Pages Directory". The information can be accessed by anyone. You can use it to find the name, QTH and home BBS of your friends. How to use the "National White Pages" will be discussed in part 9 of this series.
+
+\verb!O! - OPTIONS - FBB systems offer several user selectable options - the language used by the BBS, paging, mail listing and base message number. Enter \verb!?O! for an explanation of how to use these options if you're using an FBB BBS.
+
+\verb!P! - PATH - On MSYS BBSs, \verb!P! followed by a callsign will give you the path last used by that station to connect to the BBS. Example:\\
+
+\verb!P W6PW!\\
+
+\verb!B! - BYE - When you're finished using the BBS, enter a \verb!B! to disconnect. You should always use the \verb!B! instead of disconnecting with the TNC DISCONNECT command. On most BBSs, your user file is updated only when you leave the BBS using the \verb!B!. If you don't use the \verb!B!, the update doesn't occur, so the \verb!L! command will not have the correct information for the next time you use the BBS.
+
+Remember, you won't find all of these commands on the BBS you're using, but you might find others available that aren't listed here. Check your local BBS help document for a complete list of the commands available to you.

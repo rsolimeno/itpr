@@ -1,0 +1,37 @@
+% Chapter 7
+\chapter{PACKET MESSAGE ADDRESSING}
+Messages are directed throughout the worldwide BBS network using a scheme called HIERARCHICAL ADDRESSING. The format for a hierarchical address is:\\
+
+\verb!addressee-call @ BBS-call.#local-area.state-province.country.continent!\\
+
+\noindent For example: My hierarchical packet address is:\\
+
+\verb!WB9LOZ @ W6PW.#NCA.CA.USA.NOAM!\\
+
+It might look complicated, but it's not. First, note that each section of the format is separated by a period. State and province codes are the recognized two-character codes established by the US and Canadian Post Offices. These may be found in the Callbook, your phone directory, or any zip code listing. Don't guess on the state and province code if you aren't sure what it is, and make sure you use only the two-letter abbreviation. You could send the message to the wrong state or province or keep it from being forwarded altogether.
+
+The codes used for the countries and continents are standards, now accepted throughout the world. You should be able to find a list of them in the help document or file section of your BBS. The country code has three letters and the continent code has four letters. (An older version of the continent code, still used by some BBSs, has only two letters.)
+
+The code for the local area is optional. Since you probably have no idea what code is being used in upper New York state or in Iowa City, IA, for example, you don't have to enter it. If you do know the local code, please use it, because it will help get the message closer to where it's going more directly.
+
+For messages going outside of the US or Canada, the state-province section is not always used.
+
+Using the hierarchical format, here are some examples of packet addresses:\\
+
+\begin{itemize}
+\item \verb!KB6LQV @ N6ZGY.#CCA.CA.USA.NOAM!
+\item \verb!KC6NVL @ K6VE.#SCA.CA.USA.NOAM!
+\item \verb!KC3XC @ N4QQ.MD.USA.NOAM!
+\item \verb!VE3XYZ @ VE3RPT.ON.CAN.NOAM!
+\item \verb!JA1ABC @ JA1KSO.#42.JPN.ASIA!
+\end{itemize}
+
+You'll note that the local area code is preceded by the octothorpe (now, how's that for a \$5 word?), better known as the number or pound sign. The reason is that in Great Britain, Japan, and possibly other areas, they use routing numbers for the local area, which could get confused with zip and postal codes. Using the \# on all local area codes will eliminate forwarding problems.
+
+We need to emphasize two very important points: hierarchical addressing DOES NOT indicate a forwarding PATH, and ONLY ONE BBS call should be included in the address. A list of BBS calls separated by periods will not get your message to its destination. In fact, it can cause your message to loop between BBSs and your message probably won't be delivered. The addressing scheme is said to be one area inside another area. Using my hierarchical address as an example, \verb!WB9LOZ @ W6PW.#NCA.CA.USA.NOAM!, here's how you would describe the address: ``WB9LOZ at W6PW which is in Northern California which is in California which is in the USA which is in North America.''
+
+USING THE HIERARCHICAL ADDRESS: This section explains how the BBS software uses the hierarchical addressing scheme. For an example, let's say that I send a message to my friend Richard, KA7FYC, who uses the KD7HD BBS in Missoula, MT as his home BBS. I would enter:\\
+
+\verb!SP KA7FYC @ KD7HD.#MSL.MT.USA.NOAM!\\
+
+All BBSs have a routing list called a ``forward file.'' Like your local postal sorter, it ``knows'' about local routings in detail, but as the destination grows more distant, it knows only about larger geographical areas. If the only items in my BBS's forward file are other California BBSs plus a list of state abbreviations, country and continent codes, let's see how this message would be forwarded. The BBS software will attempt to find a match between the items in the BBS forward file and the various parts of the hierarchical address starting with the left-most item in the address field. In our case, it would not find a match for KD7HD. If there isn't a match, it then moves to the next section to the right. It wouldn't find a match for \#{}MSL, so it would again move to the right. Since all of the state abbreviations are listed in the forward file, it would find MT and that match would allow the message to be forwarded. The forward file would indicate the call of the next BBS in line to receive a message addressed to MT. Once the message is received at the next BBS, the process would start all over again until the message is finally delivered to its destination.

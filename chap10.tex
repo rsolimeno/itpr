@@ -1,0 +1,72 @@
+% Chapter 10
+\chapter{USING THE NODE NETWORK - PART 1 OF 2}
+In this and the next part of the series we're going to take an in depth look at the packet node network. In chapter 4 I explained how to use the network for connecting to another station. Now we'll look at the other features a node offers.
+
+\section{THE PACKET NODE NETWORK}
+Using the packet node network can make your operating time on packet more enjoyable and it can greatly expand the area that you can reach. The network of NET/ROM, TheNet, G8BPQ and KAM nodes is expanding very quickly and now covers most of the country. New nodes are showing up almost daily. Thanks to all of these stations and the interconnecting links, you can now connect to stations in many distant places using a low powered 2 meter rig. Some nodes are set up for cross-banding, and with the introduction of nodes on 10 meter FM, there's the possibility of working a station just about anywhere.
+
+A packet node, in most cases, is still set up for digipeater operation, so you can still use it as a regular digipeater, but for most of your connections you'll want to use the node features. Why? When using a string of digipeaters your packets have to reach their destination parity correct and the receiving TNC has to return an acknowledgement (ack) to your TNC for each packet to be accepted. As you add more digipeaters to the path the chances of each packet being accepted becomes less and less. Other stations on the frequencies being used and noise along the route can be the cause of many retries. When using a node, however, your packets no longer have to reach their destination before the acknowledgements are returned to your TNC. Each node acknowledges your packet as its sent along the way toward its destination.
+
+If you've been monitoring lately, you might have seen the nodes in action. You might have wondered why they were sending all of those weird symbols like \verb!@fx/<~|!. What you're seeing is the nodes communicating with each other and updating their node lists. You also might have noted callsigns with high numbered SSIDs, such as WB9LOZ-14, WA6DDM-15, W6PW-12, etc. The nodes change the SSIDs of all stations that originate packets so that the callsigns sent via the network are not the same as those sent directly. If you were to use a node to connect to another station in the local area, there's the possibility of your packets being received by this station both from you directly and from the node. If the callsign through the node wasn't changed, the TNCs involved would be totally confused as it would appear that two stations were connecting using the same callsign. The node automatically changes the SSID using the formula 15-N, where N is your usual SSID. A call with -0 becomes -15, a -1 becomes -14, -2 becomes -13, etc.
+
+The node network is very simple to use. As explained in part 4, to use the node network you first connect to a local node. It should be one where you can connect to it direct with good signal strength. Once you've connected, you then have several options -- connect to another station within range of the node, connect to another node, connect to an associated BBS, obtain a list of the nodes that are available, or check route and user status. On NET/ROM and TheNet nodes you can also answer or call CQ.
+
+There are several commands available on your local node. All have CONNECT, NODES, ROUTES and USERS, and depending on the type of node you're using, you might also find the BBS, BYE, CQ, INFO, MHEARD, PARMS or PORTS commands available.
+
+\section{THE PACKET NODE COMMANDS}
+\subsection{CONNECT} The \verb!CONNECT! command (which can be abbreviated as \verb!C!) is used just like you use the \verb!CONNECT! command with your TNC. To connect to another local station using a node, first connect to the node and then enter \verb!C! followed by the callsign of the station you want to reach. To connect to another node you can use either the callsign or the alias. For example, to connect to the BERKLY:WB9LOZ-2 node:\\
+
+you can use \verb!C WB9LOZ-2!, or\\
+you can use the alias \verb!C BERKLY!\\
+
+\noindent Either one will work. Review chapter 4 of this series for more information on making connections via the node network.
+\subsection{PORTS}
+There's a special consideration when making connections from a node using the G8BPQ Packet Switch software. Since these nodes are capable of having several different frequencies operating from the one node, you have to indicate which frequency port you want to make your connection on. The \verb!PORTS! command, abbreviated \verb!P!, will give you a list of the ports available, such as this:\\
+
+   \verb!SF:WB9LOZ-1} Ports:!
+        \verb!1 144.99 MHz!
+        \verb!2 223.56 MHz!
+        \verb!3 441.50 MHz!
+You then insert the port number between the \verb!C! and the callsign to indicate which frequency you want to use, in this case the port 1 frequency of 144.99 MHz:\\
+
+\verb!C 1 WB6QVU!\\
+
+\subsection{NODES} The \verb!NODES! command can be abbreviated as \verb!N! and when entered without any other information will give you a listing of other nodes that can be worked from the node you're using. The list contains both the alias and the callsign of each node. The alias might give you a hint of a node's location, but you'll need a list of the local nodes to be able to tell for sure where each node is located. (You'll probably find node lists in the file section of your local BBS.) As you move from node to node, the list of nodes you find will vary in length and will contain different callsigns since all of the frequencies are not linked.
+
+The \verb!NODES! command has a feature that gives you a simple way to find out how easy it will be to connect to another node in the list. All you need to do is enter \verb!N! followed by either the alias or callsign of the node that you want to reach, such as:\\
+
+\noindent\verb!N FRESNO! or \\
+\verb!N W6ZFN-2!\\
+
+You'll receive a report showing up to three routes to the node you asked about, how good these routes are and how up to date the information is. If there is no information available, you will receive either ``Not found'' or the complete node list, depending on the type of node or switch you're using.
+
+Let's take a look at a typical report you would receive after entering \verb!N FRESNO!. If you were connected to a NET/ROM or TheNet node the report would look like this:\\
+
+\noindent\verb!SFW:W6PW-1} Routes to: FRESNO:W6ZFN-2!\\
+\begin{tabular}{rrrl}
+\verb!105! & \verb!6! & \verb!0! & \verb!WB9LOZ-1!\\
+\verb!78! & \verb!6! & \verb!0! & \verb!W6PW-6!\\
+\verb!61! & \verb!5! & \verb!0! & \verb!WA8DRZ-7!\\
+\end{tabular}
+      
+\bigskip
+If you were connected to a G8BPQ packet switch you would see one less column in the report and it would look like this:\\
+
+
+\noindent\verb!SF:WB9LOZ-1} Routes to: FRESNO:W6ZFN-2!\\
+\begin{tabular}{rrl}
+\verb!> 126! & \verb!6! & \verb!W6PW-10!\\
+\verb! 78! & \verb!6! & \verb!W6PW-6!\\
+\verb! 60! & \verb!4! & \verb!W6PW-1!\\
+\end{tabular}
+  
+\bigskip     
+Each line is a route to the node you asked about. The symbol \verb!>! indicates a route that's in use. The first number is the quality of the route. 255 is the best possible quality and means a direct connect via hard wire to a coexisting node at the same site; zero is the worst, and means that the route is locked out. 192 is about the best over the air quality you'll find, and it usually means that the node is only one hop away. If you see a quality of less than 80, you'll probably have a difficult time getting any information through via that route. The second number is the one that tells you how up to date the information is; it's call the obsolescence count. This number is a 6 when the information for the route is less than an hour old. For each hour that an update on the route is not received, this number is decreased by one. A 5 means the information is an hour old, a 4 means that it's two hours old, and so on. The next number, shown only on NET/ROM and TheNet nodes, indicates the type of port. A 0 is an HDLC port; a 1 is an RS-232 port. You don't need to pay any attention to this figure. The callsign is that of the neighboring node that's next in line on the route.
+
+This quick check on a node that you want to reach can save you a lot of time. You'll know immediately whether or not the node is available, and if it is, how good the available routes are to it. You then won't have to spend time trying to connect to a node that isn't available or is of poor quality.
+
+If you find that there's a decent route to the node or switch you want to reach, it's normally best to let the network make the connection for you. Simply enter a connect to the alias or callsign you want rather than connecting to each individual node along the route yourself.
+
+If a route exists but the quality is not very good, you might want to connect to the neighboring node shown for the best route, then do another quality check, repeating this procedure until you find a route with decent quality. You can actually get through to some distant nodes using this method if you have the time and patience to work on it.
+
+(We continue with more commands used on the packet nodes in chapter 11)

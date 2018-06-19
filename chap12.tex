@@ -1,0 +1,54 @@
+% Chapter 12
+\chapter{NATIONAL TRAFFIC SYSTEM AND PACKET RADIO}
+The National Traffic System, known as NTS, is the ARRL sponsored Amateur Radio message handling network. Packet radio is now playing a very important part in the network, so let's take a look at the system and give you some tips on handling NTS traffic by packet.
+
+Handling third party traffic is the oldest tradition in amateur radio. Nationwide, the National Traffic System has hundreds of local and section nets meeting daily in order to facilitate the delivery and origination of such messages. More and more of this traffic is being originated, relayed, and delivered on packet. If you enjoy traffic handling, you can easily get involved in NTS via packet. If you're on packet but know nothing about NTS, this part of the series will get you off to a good start. At the end you'll also find some references for further information on NTS.
+
+Local packet BBSs have to be checked daily for traffic that needs to be delivered or relayed. When you check into your local BBS, enter the \verb!LT! command, meaning ``List Traffic.'' The BBS will display a list of all NTS traffic awaiting delivery. It'll look similar to this example:\\
+
+\begin{small}
+\begin{tabular}{llllllll}
+MSG\# & STAT & SIZE & TO  &   FROM &  @BBS &  DATE/TIME & SUBJECT\\
+37893 & TN    & 486 & 60625  & KB6ZYZ & NTSIL & 1227/0712 & CHICAGO, IL 312-267\\
+37802 & TF    & 320 & 06234  & WB6DOB & NTSCT & 1227/0655 & NEW HAVEN, CT\\
+37854 & TF    & 588 & 93432  & KA4YEA &       & 1227/0625 & CRESTON, CA 93432\\
+37839 & TN    & 412 & 94114  & KA8UHL &       & 1227/0311 & SAN FRANCISCO 415-821\\
+37781 & TF    & 298 & 94015  & W1KPL  &       & 1226/2356 & DALY CITY, CA 415-992\\
+\end{tabular} 
+\end{small}
+
+\bigskip    
+
+You might see traffic that is being relayed by your local BBS to some other part of the country as well as traffic for your local area. The ``Subject'' or ``Title'' column of the listing will show the destination of the traffic. If you see a message that is within your local area, help out and deliver it.
+
+\section{RECEIVING A MESSAGE} To take a message off of the Bulletin Board for telephone delivery, or for relay to a local NTS net, enter \verb!R! followed by the message number. Using the list above, entering the following would send you the message from KA8UHL for San Francisco:\\
+
+\verb!R 37839!\\
+
+You'll find the message in a special NTS RADIOGRAM format, with a preamble, address, telephone number, text and signature, ready for delivery. After the message has been saved to your printer or disk, the message should be erased from the BBS. Use the \verb!K! command, as you do for killing your own messages. To kill message 37839, for example, you'd enter:\\
+
+\verb!K 37839!\\
+
+\noindent This prevents the message from being delivered again by someone else.
+
+\section{DELIVERING OR RELAYING A MESSAGE} Once you have received the NTS Radiogram, it should, of course, be handled expeditiously. If it's for your immediate area, you should deliver the message by telephone. If you took the message for delivery to the local traffic net, you should make an effort to see that it gets relayed as quickly as possible. If you're unable to deliver the message, due to an incorrect phone number, no answer after several tries, or some other problem, send a return message to the originator advising him of the non-delivery, and why.
+
+\section{SENDING MESSAGES} Any amateur can originate a message on behalf of another individual, whether the person is a licensed amateur or not. It is the responsibility of the originating amateur, however, to see that the message is in proper form before it's transmitted. A special format is used for NTS traffic so that the messages are compatible across the entire network. Each message should contain the following components in the order given: number, precedence, handling instructions (optional), the station of origin, check, place of origin, time filed, date, address, telephone number, text and signature. The destination of all NTS traffic must be to a point in the US, its possessions, or Canada.
+
+When the message is ready to be entered into your local BBS, you must use the \verb!ST! command, which means ``Send Traffic,'' followed by the zip code of the destination city, then @ NTS followed by the two letter state abbreviation. The form used is:\\
+
+\verb!ST ZIPCODE @ NTSxx!\\
+
+\noindent A message being sent to Boston, MA 02109 would be entered as follows:\\
+
+\verb!ST 02109 @ NTSMA!\\
+
+\noindent and a message for Iowa City, IA 52245 would be entered as:\\
+
+\verb!ST 52245 @ NTSIA!\\
+
+The message SUBJECT or TITLE should contain the destination city and state and the telephone area code and exchange, if available. See the examples in the listing above. Only one NTS message should be included in each packet message (no ``book'' messages). The actual radiogram should be included entirely within the TEXT of the packet message, including all of the components listed above. End the message with the usual \verb!Control-Z! or \verb!/ex!.
+
+\section{IN TIME OF EMERGENCY} The National Traffic System functions on a daily basis as a public service for both your fellow hams and the general public. It serves another function as well. The NTS provides a well oiled and trained national system of experienced traffic handlers able to handle large volumes of third party traffic accurately and efficiently during disasters. Your participation now will help prepare you for that time of emergency. Following the Loma Prieta Earthquake in October of 1989, over 7000 NTS messages were handled by packet BBSs in the San Francisco Bay Area. We needed and used all of the help we could get.
+
+\section{REFERENCE MATERIAL} The ARRL booklet ``An Introduction to Operating an Amateur Radio Station'' offers detailed information on handling and preparing NTS Radiograms. There are also many files with detailed information on NTS available for downloading from your local BBS. They give a complete rundown on how to prepare and send an NTS message on packet, how to deliver NTS messages, etc. Check your local BBS files section for them if you want to get involved. Your help will certainly be welcome!

@@ -1,0 +1,59 @@
+% Chapter 8
+\chapter{THE PACKET MESSAGE -- A DETAILED LOOK}
+The following is an example of what you see when listing messages on a BBS. On some systems the information is displayed in a different order, but the same information is given.\\
+
+\begin{scriptsize}
+\begin{tabular}{llllllll}
+
+MSG\# & STAT & SIZE & TO & FROM & @ BBS & DATE/TIME & SUBJECT \\ 
+
+14723 & PN & 1084 & WD5TLQ & WA6XYZ & N5SLE & 0604/1240 & Software working great! \\ 
+
+14721 & B\$ & 771 & PACKET & WB9LOZ & WUSA & 0604/1154 & INTRO TO PACKET-Part 7 of 20 \\ 
+
+14717 & BF & 2387 & EXAMS & W6NLG & NCA & 0603/1020 & FCC Exams: March -- June \\ 
+
+14715 & TN & 275 & 94114 & W1AAR & 0604/0959 &   & San Francisco 415-821 \\ 
+
+14714 & BF & 1663 & DEBATE & N2DEQ & WW & 0602/2314 & CW REALLY NEEDED? \\ 
+
+14712 & BF & 918 & INFO & N6ZYX & NCA & 0603/1845 & 9600 BAUD DEMONSTRATION \\ 
+\end{tabular} 
+\end{scriptsize}
+
+\bigskip    
+           
+\noindent The MESSAGE NUMBER is assigned by the BBS program when the message is received and it cannot be changed. The numbers are assigned sequentially.
+
+The STATUS of the message includes several different bits of information. The first letter of the STATUS indicates the TYPE of message: B for Bulletin, P for Personal, or T for Traffic for the National Traffic System. Bulletins are messages of general interest to all users, and they can be read by everyone using the system. Personal messages are listed only for the sender, the addressee and the sysop, and they're the only ones who can read them. The list above would have to have been requested by WD5TLQ, WA6XYZ or a sysop. Can you see why? It lists an outgoing personal message. (NOTE: Although personal messages can't be read by everyone using the BBS, anyone in monitor mode can see a personal message as it's being sent over the air, of course.) Traffic messages, type T, are listed for everyone and can be read by anyone. In fact, all users are encouraged to participate in the delivery of NTS messages addressed to your area. (Refer to chapter 12 of this series for information on NTS messages.)
+
+STATUS also shows whether or not the message has been read, has already been forwarded to all designated stations, or has not been forwarded. You might see one of these letters: N -- no, it hasn't been read, Y -- yes, it has been read, F -- it has been forwarded, \$ -- it has not been forwarded, I -- it's in the process of being forwarded right now.
+
+The SIZE indicates the combined total of characters, including punctuation, in the message text. The forwarding headers (explained below) are considered to be part of the text and are included in the size. What starts out as a short message can grow in size as it's forwarded from BBS to BBS.
+
+TO is the callsign of the addressee for personal messages, the category or interest group for bulletins and the zip code of the addressee for NTS messages. While you might find bulletins addressed TO AMSAT, TO PACKET or TO SALE, they're actually messages about AMSAT, about PACKET or about equipment for SALE. You're apt to see anything in the TO column: ALL, USERS, EXAMS, CODE, SALE, WANTED, DEBATE, SAT, PACKET, etc.
+
+FROM shows the callsign of the station originating the message.
+
+@ BBS is used for forwarding a personal message to someone at another BBS, for forwarding NTS messages and for general distribution of a bulletin using a forwarding designator. In the list shown above, the personal message would automatically be forwarded to WD5TLQ at the N5SLE BBS. By entering a special designator, such as NCA, in the "@ BBS" column a bulletin may be forwarded to specific areas. (See chapters 6 and 7 of this series for details on the addressing of personal messages and bulletins and on using the forwarding designators. Addressing of NTS messages is discussed in part 12.)
+
+Next is the DATE and TIME showing when the message was received at the BBS you're using, or when the message was written. (This varies depending on the type of software being used at the BBS.) If the message originated at another BBS, the date and time when the message was originally entered will be shown in the forwarding headers, as explained below, and at the top of the message when you read it. The date and time indicated can be either local time or GMT (Zulu time) depending on the time used by the BBS.
+
+The SUBJECT (or TITLE) is a short description of the message content. For bulletins, this is the information that determines whether or not someone is going to read your message when he sees it in the message list. It should be brief, but it also should be informative. You need to tell the other users what the message is about as clearly and concisely as you can with just 30 characters.
+
+The parts of the message mentioned so far are all seen when you ask for a message list using the \verb!L! (LIST) command. On some systems, entering a semicolon after the list command will give you more information about the message, such as the message ID, the full hierarchical address, the number of times the message has been read, etc. Example:\\
+
+\verb!LL 35 ;!\\
+
+If a message has been forwarded from another BBS, forwarding headers are added at the top of the actual message TEXT. This information is added by each BBS that is used to get the message from its origination point to the destination. Each BBS adds one line showing the time the message was received by that particular BBS, its callsign and address, and possibly the QTH, zip code, message number and other information. If you use the RH or V command (depending on your software), rather than just R, when reading a message, you'll receive complete headers. With just the R, headers are reduced to a list of the BBS callsigns. The complete headers are useful if you want details on the path a message took to reach you or how long it took to be forwarded from system to system from the source to destination.
+
+The TEXT of the message contains the information you want to convey to the reader. It can be of any length. However, if the message will be going to a distant BBS and will most likely be forwarded on the HF network, there is a 2.5K size limit. This limit has been set by the HF gateway sysops to keep traffic moving smoothly despite poor conditions and QRM. Extremely long messages can tie up the forwarding system unnecessarily, so users are advised to break up long messages into parts.
+
+As mentioned in chapter 6, when entering a message into a BBS, use carriage returns at the ends of your lines, as if you were using a typewriter. The normal screen width is 80 characters, so you should enter a carriage return prior to the 80th character on each line. A message entered without the carriage returns can be very difficult to read as words are cut at improper points, lines vary drastically in length, and blank lines are often inserted. On some terminal programs and printers, any line exceeding 80 characters without a carriage return inserted will not be seen or printed past the 80th character.
+
+You should include your name, call and packet address at the end of the text so that the person reading your message will be able to send a return message to you if he or she wishes to do so. You end your message with a control-Z or a \verb!/ex! at the beginning of a new line. This will tell the BBS to save the message. Don't disconnect until you receive the prompt back from the BBS. Otherwise you won't know whether or not your message was saved.         
+            
+              
+                  
+              
+                

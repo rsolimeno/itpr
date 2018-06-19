@@ -1,0 +1,41 @@
+% Chapter 14
+\chapter{TNC COMMANDS - PART 3 OF 3}
+\section{MAXFRAME} Sets the upper limit on the number of unacknowledged packets the TNC can have outstanding at any time. (The outstanding packets are those that have been sent but have not been acknowledged.) \verb!MAXFRAME! also determines the maximum number of contiguous packets that can be sent during one transmission. The value can be set from 1 to 7. The best value to use depends on the frequency conditions. The better the conditions are, the higher the value you can use. If conditions are poor due to frequency congestion, noise, or other variables, (shown by lots of retries) \verb!MAXFRAME! should be reduced to improve throughput. The best value of \verb!MAXFRAME! is determined through experimentation. \verb!MAXFRAME! of 1 should be used for best results on HF packet.
+
+\section{MFILTER} This command allows you to enter up to four ASCII character codes, 0 - \$7F, for the control characters that you want eliminated from your monitored packets. Codes may be entered in either Hex or Decimal. Here are the ASCII codes for some of the more troublesome control characters found in monitored packets:\\
+
+\begin{small}
+\begin{tabularx}{400pt}{lllX}
+HEX &  DEC &  FUNCTION &  POSSIBLE RESULT\\
+   \$07  &  07  & Control G & Rings your bell or ``beeps'' your speaker\\
+   \$0C  &  12  & Control L & Form feed - could clear your screen\\
+   \$13  &  19  & Control S & Can cause your screen to stop scrolling\\
+   \$1A  &  26  & Control Z & Can clear your screen\\
+   \$1B  &  27  & Escape    & Can cause your cursor to move to a random         
+                          point on your screen and can raise havoc          
+                          with printer control.\\
+\end{tabularx} 
+\end{small}
+
+\bigskip  
+
+AEA has added a new code, \$80, that will not allow ANY control characters to be displayed on the user's screen from monitored packets.
+
+\section{MHEARD} An immediate command that causes the TNC to display a list of stations that have been heard since the command \verb!MHCLEAR! was given or the TNC was powered on. This command is useful for determining what stations can be worked from your QTH. Stations that are heard through digipeaters are marked with an * on most TNCs. On the AEA PK-232, the stations heard direct are marked with the *. (Check your TNC manual.) The maximum number of stations in the list is 18. If more stations are heard, earlier entries are discarded. Logging of stations heard is disabled when the \verb!PASSALL! command is ON. (See below.) If the \verb!DAYTIME! command has been used to set the date and time, entries in the \verb!MHEARD! list will show the date and time the stations were heard.
+
+\section{PASSALL} Causes the TNC to display packets that have invalid checksums. The error-checking is disabled. If \verb!PASSALL! is ON, packets are accepted for display, despite checksum errors, if they consist of an even multiple of eight bits and are up to 330 bytes. The TNC attempts to decode the address field and display the callsigns in standard format, followed by the text of the packet. \verb!PASSALL! can be useful for testing marginal paths or for operation under unusual conditions. \verb!PASSALL! is normally turned OFF.
+
+\section{PERSIST} Used in conjunction with the \verb!SLOTTIME! command (see below) to \verb!SLOTTIME! less clutter on a busy packet frequency. As more and more TNCs are upgraded to include the \verb!PERSIST! and \verb!SLOTTIME! commands, fewer and fewer packet collisions will occur. If you have these commands available in your TNC, you should set \verb!DWAIT! to 0 and set these commands for use. Note: On some TNCs, such as the PK-232, you have another command that determines whether you use \verb!DWAIT! or \verb!PERSIST! /\verb!SLOTTIME!. It's the \verb!PPERSIST!  command (with 2 P's). Set it ON to use \verb!PERSIST! /\verb!SLOTTIME!; set it OFF to use \verb!DWAIT!. I strongly recommend that you set \verb!PPERSIST!  to ON.
+
+\verb!PERSIST! specifies a threshold value for a random-number attempt to transmit. The value ranges from 0 to 255. 0 signifies a 1/256th chance of transmitting every \verb!SLOTTIME!; 255 allows the TNC to key the transmitter every \verb!SLOTTIME!. Through experimentation, it has been determined that the best value for \verb!PERSIST! is in the 60 to 70 range.
+
+\section{SLOTTIME} This command determines the time interval the TNC waits between generating random numbers to see if it can transmit. This random number generation and the value of \verb!PERSIST! work together to provide smoother operation on a busy packet frequency. The \verb!SLOTTIME! value may be set from 0 to 250. Through experimentation it has been determined that the best value for \verb!SLOTTIME! is in the range of 10 to 20.
+
+\section{SCREENLN n} This parameter determines the length of a line of text on your computer screen. The value may be 0 to 255, and is usually set to 40 or 80 depending on the screen display you have. A carriage return and line feed \verb!<CR/LF>! are sent to the terminal in Command and Converse modes when n characters have been displayed. A value of zero inhibits this action. If your computer automatically formats output lines, this feature should be disabled.
+
+\section{TRANS} This is an immediate command causing the TNC to change from Command mode to Transparent Mode. Transparent mode is used when you want to send data such as executable programs where characters in the data would conflict with the operation of the TNC. Characters such as ``Control C'', ``Control R'', ``Control S'', ``carriage return'', ``linefeed'', etc. all effect the operation of the TNC when in Converse Mode. In Transparent Mode none of the data characters affect the operation. All eight bits of each character are sent to the radio exactly as they are received by the TNC from the computer or keyboard. Packets are transmitted at regular intervals set by the \verb!PACTIME! command or whenever a full packet of information is ready. The receiving TNC must also be in Transparent mode and nodes and digipeaters cannot be used in the transmit path. Since the characters normally used for TNC operation have no affect in this mode, a special procedure is required to exit Transparent Mode and return to Command Mode. Refer to your TNC operating manual for details on how this procedure is performed on your particular TNC. You should also check your manual for information on the \verb!CMDTIME!, \verb!PACTIME!, \verb!START!, \verb!STOP!, \verb!TRFLOW!, \verb!TXFLOW!, \verb!XFLOW!, \verb!XOFF! and \verb!XON! commands before using Transparent Mode.
+
+\section{TXDELAY n} This parameter tells the TNC how long to wait before sending data after it has keyed the transmitter. All transmitters need some start up time to put a signal on the air. Some need more, some need less. Synthesized radios and radios with mechanical relays need more time, while crystal controlled radios and radios with diode switching require less time. External amplifiers usually require additional delay. Experiment to determine the best value for your particular radio. \verb!TXDELAY! can also be useful to compensate for slow AGC recovery or squelch release times at the distant station.
+
+There are many additional commands available to you. Spend some time reading the owner's operating manual that came with your TNC to discover some of the surprises the other commands offer. New versions of the TNC software have added several commands that you might find useful in your packet operating.
+
